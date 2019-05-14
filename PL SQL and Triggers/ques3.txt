@@ -1,0 +1,22 @@
+create or replace package proj2_package AS
+
+procedure enroll_student_in_class(classidIn in classes.classid%type, results out varchar);
+END proj2_package;
+/
+
+procedure enroll_student_in_class(classidIn in classes.classid%type, results out varchar) as
+cursor classes_cursor is
+select * from classes where classid = classidIn;
+classes_rec classes_cursor%rowtype;
+
+if (classes_cursor%notfound) then
+        results := 'This classid is invalid';
+
+cursor tadetails_cursor is
+select b#, first_name, last_name from students 
+where 
+
+completecourses_rec completecourses_cursor%rowtype;
+
+END proj2_package;
+/
